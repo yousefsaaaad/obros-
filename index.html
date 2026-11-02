@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منيو O’Bros</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f4;--ink:#22201c;--mute:#6b6f6c;--head:#14353b;--accent:#e3a21a;--line:#d3dad8}
+@media (prefers-color-scheme:dark){:root{--bg:#10191b;--ink:#eef1ef;--mute:#9aa6a3;--head:#0b2227;--line:#25363a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
+header{background:var(--head);color:#fff;padding:40px 20px 30px;text-align:center}
+header h1{margin:0;font-size:2.6rem;font-weight:800;font-family:Georgia,"Times New Roman",serif;direction:ltr}
+header p{margin:4px 0 0;color:#b9cfd2}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 14px}
+nav button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.92rem;padding:5px 16px;border-radius:99px;cursor:pointer;line-height:1.3}
+nav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#22201c;font-weight:600}
+nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{max-width:640px;margin:0 auto;padding:8px 18px 48px}
+section{scroll-margin-top:60px}
+h2{font-size:1.25rem;margin:30px 0 4px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+h2 span{font-size:.95rem;color:var(--mute);font-weight:400;direction:ltr}
+.item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.item .txt{flex:1}
+.name{font-weight:600;display:block}
+.en{display:block;color:var(--mute);font-size:.85rem;direction:ltr;text-align:right}
+.price{font-weight:800;white-space:nowrap;text-align:left}
+.price small{font-weight:400;color:var(--mute);margin-inline-start:3px;font-size:.75rem}
+.opt{display:flex;justify-content:flex-end;gap:6px;align-items:baseline}
+.opt em{font-style:normal;font-weight:400;color:var(--mute);font-size:.8rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>O’Bros</h1>
+  <p>Menu | المنيو</p>
+</header>
+<nav id="tabs" aria-label="أقسام المنيو"></nav>
+<main id="menu"></main>
+
+<script>
+// ====== عدّل البيانات دي بس ======
+// صنف بسعر واحد: ["عربي","English",السعر]
+// صنف بأحجام: ["عربي","English",[["سنجل",55],["دبل",75]]]
+const CUR = "ج.م";
+const CATS = [
+ ["مشروبات ساخنة","Hot Drinks",[
+  ["قهوة تركي","Turkish Coffee",[["سنجل",55],["دبل",75]]],
+  ["كورتادو","Cortado",110],
+  ["إسبريسو","Espresso",[["سنجل",70],["دبل",90]]],
+  ["فلات وايت","Flat White",120],
+  ["كراميل ماكياتو","Caramel Macchiato",135],
+  ["كابتشينو","Cappuccino",110],
+  ["موكا","Mocha",135],
+  ["ماكياتو","Macchiato",[["صغير",85],["كبير",100]]],
+  ["ماتشا","Matcha",110],
+  ["أمريكانو","Americano",100],
+  ["شاي","Tea",45],
+  ["أعشاب","Herbal Tea",50],
+  ["شاي باللبن","Milk Tea",70],
+  ["شاي فواكه","Fruit Tea",60],
+  ["كافيه أوليه","Café au Lait",110],
+  ["V60","V60",120]
+ ]],
+ ["مشروبات باردة","Cold Drinks",[
+  ["فرابيه","Frappé",125],
+  ["فرابيه فليڤور","Flavored Frappé",140],
+  ["أوريو فرابيه","Oreo Frappé",140],
+  ["ميلك شيك","Milkshake",140],
+  ["آيس لاتيه","Iced Latte",110],
+  ["آيس أمريكانو","Iced Americano",110],
+  ["آيس ماتشا","Iced Matcha",125],
+  ["عصائر","Fresh Juices",90],
+  ["موهيتو","Mojito",145],
+  ["موهيتو ريد بول","Red Bull Mojito",200],
+  ["سموزي","Smoothie",125],
+  ["V60","V60",125],
+  ["آيس تي","Ice Tea",80],
+  ["مشروبات غازية","Soft Drinks",75],
+  ["مياه فوارة","Sparkling Water",55],
+  ["مياه","Water",15]
+ ]],
+ ["كرواسون","Croissants",[
+  ["كرواسون سادة","Plain Croissant",70],
+  ["كرواسون تركي وشيدر","Turkey & Cheddar Croissant",130],
+  ["كرواسون بيستاشيو","Pistachio Croissant",110],
+  ["كرواسون نوتيلا","Nutella Croissant",110]
+ ]],
+ ["ساندوتشات","Sandwiches",[
+  ["ساندوتش تربل تشيز","Triple Cheese Sandwich",130],
+  ["ساندوتش تونة","Tuna Sandwich",155],
+  ["ساندوتش فراخ مدخنة","Smoked Chicken Sandwich",160],
+  ["ساندوتش سالمون","Salmon Sandwich",220],
+  ["بيكون تركي","Turkey Bacon",165]
+ ]],
+ ["الكيك والحلويات","Cakes & Desserts",[
+  ["كاروت كيك","Carrot Cake",95],
+  ["تشيز كيك","Cheesecake",90],
+  ["تشيز كيك فليڤور","Flavored Cheesecake",125],
+  ["أوريو كيك","Oreo Cake",90],
+  ["هاني كيك","Honey Cake",90],
+  ["ريد ڤيلڤيت","Red Velvet Cake",90],
+  ["تيراميسو","Tiramisu",90],
+  ["شوكولاتة كيك","Chocolate Cake",90],
+  ["كوكيز","Cookies",65],
+  ["براونيز","Brownies",80]
+ ]],
+ ["إضافات","Extras",[
+  ["إسبريسو","Espresso",40],
+  ["فليڤور","Flavors",35],
+  ["ويب كريم","Whipped Cream",40],
+  ["لبن لوز","Almond Milk",50],
+  ["لبن جوز هند","Coconut Milk",50]
+ ]]
+];
+// =================================
+
+const menu = document.getElementById("menu"), tabs = document.getElementById("tabs");
+const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
+
+const sections = CATS.map(([ar, en, items], i) => {
+  const s = el("section"); s.id = "cat" + i;
+  const h = el("h2", "", ar); h.appendChild(el("span", "", en)); s.appendChild(h);
+  items.forEach(([n, e, p]) => {
+    const row = el("div", "item"), txt = el("div", "txt");
+    txt.append(el("span", "name", n), el("span", "en", e));
+    const price = el("div", "price");
+    if (Array.isArray(p)) {
+      p.forEach(([lbl, v]) => { const o = el("div", "opt"); o.append(el("em", "", lbl), el("span", "", v)); price.appendChild(o); });
+    } else { price.append(el("span", "", p), el("small", "", CUR)); }
+    row.append(txt, price); s.appendChild(row);
+  });
+  menu.appendChild(s);
+  const b = el("button", "", ar); b.setAttribute("aria-pressed", i === 0);
+  b.onclick = () => s.scrollIntoView({ behavior: "smooth", block: "start" });
+  tabs.appendChild(b);
+  return s;
+});
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    const i = sections.indexOf(e.target);
+    [...tabs.children].forEach((b, j) => b.setAttribute("aria-pressed", i === j));
+    tabs.children[i].scrollIntoView({ inline: "center", block: "nearest" });
+  }
+}), { rootMargin: "-20% 0px -70% 0px" });
+sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
