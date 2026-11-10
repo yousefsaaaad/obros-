@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#d9d9d9">
+<meta name="theme-color" content="#121212">
 <title>منيو O’Bros</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#e6e6e6;--card:#f3f3f3;--ink:#1d1d1d;--mute:#6b6b6b;--line:#cdcdcd;--head:#d6d6d6;--accent:#2b2b2b;--accent-ink:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#151515;--card:#1f1f1f;--ink:#ededed;--mute:#9b9b9b;--line:#343434;--head:#222;--accent:#ededed;--accent-ink:#151515}}
+:root{--bg:#121212;--card:#1a1a1a;--ink:#ededed;--mute:#9b9b9b;--line:#2c2c2c;--head:#171717;--accent:#ededed;--accent-ink:#121212}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--card:#1a1a1a;--ink:#ededed;--mute:#9b9b9b;--line:#2c2c2c;--head:#171717;--accent:#ededed;--accent-ink:#121212}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
-header{background:var(--head);padding:28px 20px 20px;text-align:center}
+header{background:var(--head);padding:28px 20px 20px;text-align:center;border-bottom:1px solid var(--line)}
 .brand-title{font-family:'Permanent Marker', cursive, sans-serif;font-size:3rem;margin:0;color:var(--ink);letter-spacing:1px;line-height:1.1}
 header p{margin:6px 0 14px;color:var(--mute);font-size:.95rem}
 #q{width:min(420px,100%);border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:9px 16px;border-radius:99px;outline:none;text-align:center}
@@ -117,6 +117,29 @@ const CATS = [
   ["مانجو باشون","Mango Passion",135],
   ["مانجو كيوي","Mango Kiwi",135],
   ["كريزي Obros","Crazy Obros",150]
+ ]],
+ ["الموهيتو والمشروبات","Mojitos & Drinks",[
+  ["موهيتو كلاسيك","Classic Mojito",100,"سكر بني / شرائح ليمون / نعناع / صودا","Brown Sugar / Lemon Slices / Mint / Soda"],
+  ["موهيتو بلو بيري","Blueberry Mojito",120,"سيرب موهيتو / بلو بيري / شرائح ليمون / نعناع / صودا","Mojito Syrup / Blueberry / Lemon Slices / Mint / Soda"],
+  ["موهيتو راسبيري","Raspberry Mojito",120,"سيرب موهيتو / راسبيري / شرائح ليمون / نعناع / صودا","Mojito Syrup / Raspberry / Lemon Slices / Mint / Soda"],
+  ["موهيتو ميكس بيري","Mixed Berry Mojito",145,"سيرب موهيتو / فراولة / بلو بيري / راسبيري / شرائح ليمون / نعناع / صودا","Mojito Syrup / Strawberry / Blueberry / Raspberry / Lemon Slices / Mint / Soda"],
+  ["موهيتو باشون فروت","Passion Fruit Mojito",120,"سيرب موهيتو / باشون فروت / شرائح ليمون / نعناع / صودا","Mojito Syrup / Passion Fruit / Lemon Slices / Mint / Soda"],
+  ["موهيتو خوخ","Peach Mojito",120,"سيرب موهيتو / خوخ / شرائح ليمون / نعناع / صودا","Mojito Syrup / Peach / Lemon Slices / Mint / Soda"],
+  ["موهيتو باشون خوخ","Passion Peach Mojito",145,"سيرب موهيتو / باشون فروت / خوخ / شرائح ليمون / نعناع / صودا","Mojito Syrup / Passion Fruit / Peach / Lemon Slices / Mint / Soda"],
+  ["موهيتو بطيخ","Watermelon Mojito",120,"سيرب موهيتو / بطيخ / شرائح ليمون / نعناع / صودا","Mojito Syrup / Watermelon / Lemon Slices / Mint / Soda"],
+  ["موهيتو بطيخ نعناع","Watermelon Mint Mojito",120,"سيرب موهيتو / سيرب نعناع / بطيخ / شرائح ليمون / نعناع / صودا","Mojito Syrup / Mint Syrup / Watermelon / Lemon Slices / Mint / Soda"],
+  ["موهيتو ريد بول","Red Bull Mojito",180,"سيرب موهيتو / شرائح ليمون / نعناع / ريد بول","Mojito Syrup / Lemon Slices / Mint / Red Bull"],
+  ["بلو ريد بول","Blue Red Bull",200,"سيرب بلو كوراسون / شرائح ليمون / نعناع / ريد بول","Blue Curaçao Syrup / Lemon Slices / Mint / Red Bull"],
+  ["ريد بول باشون خوخ","Passion Peach Red Bull",200,"سيرب موهيتو / باشون فروت / خوخ / شرائح ليمون / نعناع / ريد بول","Mojito Syrup / Passion Fruit / Peach / Lemon Slices / Mint / Red Bull"],
+  ["ريد بول بلو وايت","Blue White Red Bull",200,"سيرب بلو بيري / جوز الهند / شرائح ليمون / نعناع / ريد بول","Blueberry Syrup / Coconut / Lemon Slices / Mint / Red Bull"],
+  ["موهيتو بلو كوراسون","Blue Curaçao Mojito",120,"سيرب موهيتو / سيرب بلو كوراسون / شرائح ليمون / نعناع / صودا","Mojito Syrup / Blue Curaçao Syrup / Lemon Slices / Mint / Soda"],
+  ["بلو ليمون","Blue Lemon",145,"سيرب بلو كوراسون / عصير ليمون / شرائح ليمون / نعناع / صودا","Blue Curaçao Syrup / Lemon Juice / Lemon Slices / Mint / Soda"],
+  ["شيري كولا","Cherry Cola",145,"سيرب كريز / كولا","Cherry Syrup / Cola"],
+  ["صن شاين","Sunshine",145,"جرينادين رمان / عصير برتقال / صودا","Pomegranate Grenadine / Orange Juice / Soda"],
+  ["صن شاين بلو كوراسون","Blue Curaçao Sunshine",145,"جرينادين رمان / عصير برتقال / بلو كوراسون / صودا","Pomegranate Grenadine / Orange Juice / Blue Curaçao / Soda"],
+  ["صن رايز","Sunrise",145,"جرينادين رمان / صودا","Pomegranate Grenadine / Soda"],
+  ["بلو هاواي","Blue Hawaii",145,"سيرب بلو كوراسون / سيرب جوز الهند / عصير أناناس / عصير برتقال","Blue Curaçao Syrup / Coconut Syrup / Pineapple Juice / Orange Juice"],
+  ["جامايكا","Jamaica",145,"جرينادين رمان / عصير برتقال / عصير ليمون / عصير أناناس / شرائح ليمون / نعناع","Pomegranate Grenadine / Orange Juice / Lemon Juice / Pineapple Juice / Lemon Slices / Mint"]
  ]],
  ["القهوة المثلجة","Ice Coffee",[
   ["آيس لاتيه","Iced Latte",110],
