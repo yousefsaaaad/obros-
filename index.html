@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#d9d9d9">
 <title>منيو O’Bros</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#e6e6e6;--card:#f3f3f3;--ink:#1d1d1d;--mute:#6b6b6b;--line:#cdcdcd;--head:#d6d6d6;--accent:#2b2b2b;--accent-ink:#fff;--logo:none}
-@media (prefers-color-scheme:dark){:root{--bg:#151515;--card:#1f1f1f;--ink:#ededed;--mute:#9b9b9b;--line:#343434;--head:#222;--accent:#ededed;--accent-ink:#151515;--logo:invert(1)}}
+:root{--bg:#e6e6e6;--card:#f3f3f3;--ink:#1d1d1d;--mute:#6b6b6b;--line:#cdcdcd;--head:#d6d6d6;--accent:#2b2b2b;--accent-ink:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#151515;--card:#1f1f1f;--ink:#ededed;--mute:#9b9b9b;--line:#343434;--head:#222;--accent:#ededed;--accent-ink:#151515}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
-header{background:var(--head);padding:34px 20px 22px;text-align:center}
-.logo{display:block;margin:0 auto;width:min(230px,60vw);height:auto;filter:var(--logo)}
-header p{margin:10px 0 16px;color:var(--mute);font-size:.95rem}
+header{background:var(--head);padding:24px 20px 20px;text-align:center}
+.brand-title{font-family:'Permanent Marker', cursive, sans-serif;font-size:3rem;margin:0;color:var(--ink);letter-spacing:1px;line-height:1.1}
+.protected-text{font-size:0.75rem;color:var(--mute);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+header p{margin:6px 0 14px;color:var(--mute);font-size:.95rem}
 #q{width:min(420px,100%);border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:9px 16px;border-radius:99px;outline:none;text-align:center}
 #q:focus{border-color:var(--accent)}
 nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
@@ -46,7 +47,8 @@ footer{text-align:center;color:var(--mute);font-size:.8rem;padding:4px 20px 30px
 </head>
 <body>
 <header>
-  <img class="logo" alt="O’Bros" src="logo.png">
+  <div class="protected-text">Protected by Joy</div>
+  <h1 class="brand-title">O’Bros</h1>
   <p>Menu | المنيو</p>
   <input id="q" type="search" placeholder="ابحث في المنيو · Search" aria-label="بحث">
 </header>
@@ -56,9 +58,6 @@ footer{text-align:center;color:var(--mute);font-size:.8rem;padding:4px 20px 30px
 <footer>O’Bros</footer>
 
 <script>
-// ====== عدّل البيانات دي بس ======
-// صنف: ["عربي","English",السعر, "ملاحظة عربي"?, "Note"?]
-// أحجام: استخدم S(سنجل,دبل) أو M(وسط,كبير) أو اكتب القائمة بنفسك
 const CUR = "ج.م";
 const S = (a, b) => [["سنجل","Single",a],["دبل","Double",b]];
 const M = (a, b) => [["وسط","Medium",a],["كبير","Large",b]];
@@ -197,7 +196,6 @@ const CATS = [
   ["لبن شوفان","Oat Milk",50]
  ]]
 ];
-// =================================
 
 const menu = document.getElementById("menu"), tabs = document.getElementById("tabs");
 const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
@@ -224,7 +222,6 @@ const sections = CATS.map(([ar, en, items], i) => {
   return s;
 });
 
-// تظليل القسم الحالي أثناء التمرير
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) {
     const i = sections.indexOf(e.target);
@@ -234,7 +231,6 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), { rootMargin: "-20% 0px -70% 0px" });
 sections.forEach(s => io.observe(s));
 
-// البحث
 document.getElementById("q").addEventListener("input", e => {
   const q = e.target.value.trim().toLowerCase();
   let any = false;
