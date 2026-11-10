@@ -12,9 +12,8 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
-header{background:var(--head);padding:24px 20px 20px;text-align:center}
+header{background:var(--head);padding:28px 20px 20px;text-align:center}
 .brand-title{font-family:'Permanent Marker', cursive, sans-serif;font-size:3rem;margin:0;color:var(--ink);letter-spacing:1px;line-height:1.1}
-.protected-text{font-size:0.75rem;color:var(--mute);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;font-weight:600}
 header p{margin:6px 0 14px;color:var(--mute);font-size:.95rem}
 #q{width:min(420px,100%);border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:9px 16px;border-radius:99px;outline:none;text-align:center}
 #q:focus{border-color:var(--accent)}
@@ -41,13 +40,13 @@ h2 span{font-size:.8rem;color:var(--mute);font-weight:600;letter-spacing:.08em;d
 .opt{display:flex;justify-content:flex-end;gap:8px;align-items:baseline}
 .opt em{font-style:normal;font-weight:400;color:var(--mute);font-size:.76rem}
 .none{text-align:center;color:var(--mute);padding:40px 0;display:none}
-footer{text-align:center;color:var(--mute);font-size:.8rem;padding:4px 20px 30px}
+footer{text-align:center;color:var(--mute);font-size:.8rem;padding:10px 20px 30px}
+.protected-text{font-size:0.75rem;color:var(--mute);letter-spacing:1px;margin-top:6px;font-weight:600}
 [hidden]{display:none!important}
 </style>
 </head>
 <body>
 <header>
-  <div class="protected-text">Protected by Joy</div>
   <h1 class="brand-title">O’Bros</h1>
   <p>Menu | المنيو</p>
   <input id="q" type="search" placeholder="ابحث في المنيو · Search" aria-label="بحث">
@@ -55,7 +54,10 @@ footer{text-align:center;color:var(--mute);font-size:.8rem;padding:4px 20px 30px
 <nav id="tabs" aria-label="أقسام المنيو"></nav>
 <main id="menu"></main>
 <p class="none" id="none">مفيش نتائج · No results</p>
-<footer>O’Bros</footer>
+<footer>
+  O’Bros
+  <div class="protected-text">Protected by Joy</div>
+</footer>
 
 <script>
 const CUR = "ج.م";
