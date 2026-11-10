@@ -2,116 +2,199 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#d9d9d9">
 <title>منيو O’Bros</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f2f5f4;--ink:#22201c;--mute:#6b6f6c;--head:#14353b;--accent:#e3a21a;--line:#d3dad8}
-@media (prefers-color-scheme:dark){:root{--bg:#10191b;--ink:#eef1ef;--mute:#9aa6a3;--head:#0b2227;--line:#25363a}}
+:root{--bg:#e6e6e6;--card:#f3f3f3;--ink:#1d1d1d;--mute:#6b6b6b;--line:#cdcdcd;--head:#d6d6d6;--accent:#2b2b2b;--accent-ink:#fff;--logo:none}
+@media (prefers-color-scheme:dark){:root{--bg:#151515;--card:#1f1f1f;--ink:#ededed;--mute:#9b9b9b;--line:#343434;--head:#222;--accent:#ededed;--accent-ink:#151515;--logo:invert(1)}}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
-header{background:var(--head);color:#fff;padding:40px 20px 30px;text-align:center}
-header h1{margin:0;font-size:2.6rem;font-weight:800;font-family:Georgia,"Times New Roman",serif;direction:ltr}
-header p{margin:4px 0 0;color:#b9cfd2}
-nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 14px}
-nav button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.92rem;padding:5px 16px;border-radius:99px;cursor:pointer;line-height:1.3}
-nav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#22201c;font-weight:600}
+header{background:var(--head);padding:34px 20px 22px;text-align:center}
+.logo{display:block;margin:0 auto;width:min(230px,60vw);height:auto;filter:var(--logo)}
+header p{margin:10px 0 16px;color:var(--mute);font-size:.95rem}
+#q{width:min(420px,100%);border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:9px 16px;border-radius:99px;outline:none;text-align:center}
+#q:focus{border-color:var(--accent)}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.9rem;padding:4px 15px;border-radius:99px;cursor:pointer;line-height:1.35;text-align:center}
+nav button small{display:block;font-size:.68rem;color:var(--mute);direction:ltr}
+nav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+nav button[aria-pressed="true"] small{color:inherit;opacity:.75}
 nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-main{max-width:640px;margin:0 auto;padding:8px 18px 48px}
-section{scroll-margin-top:60px}
-h2{font-size:1.25rem;margin:30px 0 4px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-h2 span{font-size:.95rem;color:var(--mute);font-weight:400;direction:ltr}
-.item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
-.item .txt{flex:1}
+main{max-width:680px;margin:0 auto;padding:6px 14px 40px}
+section{scroll-margin-top:68px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px 8px;margin-top:16px}
+h2{font-size:1.2rem;margin:12px 0 4px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h2 span{font-size:.8rem;color:var(--mute);font-weight:600;letter-spacing:.08em;direction:ltr}
+.item{display:flex;align-items:flex-start;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:0}
+.txt{flex:1;min-width:0}
 .name{font-weight:600;display:block}
-.en{display:block;color:var(--mute);font-size:.85rem;direction:ltr;text-align:right}
-.price{font-weight:800;white-space:nowrap;text-align:left}
-.price small{font-weight:400;color:var(--mute);margin-inline-start:3px;font-size:.75rem}
-.opt{display:flex;justify-content:flex-end;gap:6px;align-items:baseline}
-.opt em{font-style:normal;font-weight:400;color:var(--mute);font-size:.8rem}
+.en{display:block;color:var(--mute);font-size:.84rem;direction:ltr;text-align:right}
+.note{display:block;color:var(--mute);font-size:.78rem;margin-top:2px}
+.note.l{direction:ltr;text-align:right}
+.price{font-weight:800;white-space:nowrap;text-align:left;padding-top:1px}
+.price small{font-weight:400;color:var(--mute);margin-inline-start:3px;font-size:.72rem}
+.opt{display:flex;justify-content:flex-end;gap:8px;align-items:baseline}
+.opt em{font-style:normal;font-weight:400;color:var(--mute);font-size:.76rem}
+.none{text-align:center;color:var(--mute);padding:40px 0;display:none}
+footer{text-align:center;color:var(--mute);font-size:.8rem;padding:4px 20px 30px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
 <header>
-  <h1>O’Bros</h1>
+  <img class="logo" alt="O’Bros" src="logo.png">
   <p>Menu | المنيو</p>
+  <input id="q" type="search" placeholder="ابحث في المنيو · Search" aria-label="بحث">
 </header>
 <nav id="tabs" aria-label="أقسام المنيو"></nav>
 <main id="menu"></main>
+<p class="none" id="none">مفيش نتائج · No results</p>
+<footer>O’Bros</footer>
 
 <script>
 // ====== عدّل البيانات دي بس ======
-// صنف بسعر واحد: ["عربي","English",السعر]
-// صنف بأحجام: ["عربي","English",[["سنجل",55],["دبل",75]]]
+// صنف: ["عربي","English",السعر, "ملاحظة عربي"?, "Note"?]
+// أحجام: استخدم S(سنجل,دبل) أو M(وسط,كبير) أو اكتب القائمة بنفسك
 const CUR = "ج.م";
+const S = (a, b) => [["سنجل","Single",a],["دبل","Double",b]];
+const M = (a, b) => [["وسط","Medium",a],["كبير","Large",b]];
 const CATS = [
- ["مشروبات ساخنة","Hot Drinks",[
-  ["قهوة تركي","Turkish Coffee",[["سنجل",55],["دبل",75]]],
-  ["كورتادو","Cortado",110],
-  ["إسبريسو","Espresso",[["سنجل",70],["دبل",90]]],
-  ["فلات وايت","Flat White",120],
-  ["كراميل ماكياتو","Caramel Macchiato",135],
-  ["كابتشينو","Cappuccino",110],
-  ["موكا","Mocha",135],
-  ["ماكياتو","Macchiato",[["صغير",85],["كبير",100]]],
-  ["ماتشا","Matcha",110],
-  ["أمريكانو","Americano",100],
-  ["شاي","Tea",45],
-  ["أعشاب","Herbal Tea",50],
-  ["شاي باللبن","Milk Tea",70],
+ ["المشروبات الساخنة","Hot Drinks",[
+  ["شاي","Tea",45,"(أحمر - أخضر)","(Black - Green)"],
   ["شاي فواكه","Fruit Tea",60],
-  ["كافيه أوليه","Café au Lait",110],
-  ["V60","V60",120]
+  ["شاي بالحليب","Milk Tea",70],
+  ["أعشاب","Herbal Tea",50,"(نعناع - ينسون - قرفة - زنجبيل - ليمون - بقدونس - كركديه)","(Mint - Anise - Cinnamon - Ginger - Lemon - Parsley - Hibiscus)"],
+  ["كولد آند فلو","Cold & Flu",80,"(عصير برتقال - عسل أبيض - زنجبيل)","(Orange Juice - Honey - Ginger)"],
+  ["أبل سايدر","Apple Cider",100,"(أعواد قرفة - قرنفل - عصير برتقال)","(Cinnamon Sticks - Cloves - Orange Juice)"],
+  ["هوت شوكليت","Hot Chocolate",120],
+  ["هوت أوريو","Hot Oreo",110],
+  ["هوت لوتس","Hot Lotus",110],
+  ["هوت بندق","Hot Hazelnut",110],
+  ["سحلب","Sahlab",120]
  ]],
- ["مشروبات باردة","Cold Drinks",[
-  ["فرابيه","Frappé",125],
-  ["فرابيه فليڤور","Flavored Frappé",140],
-  ["أوريو فرابيه","Oreo Frappé",140],
-  ["ميلك شيك","Milkshake",140],
+ ["القهوة الساخنة","Hot Coffee",[
+  ["قهوة تركي","Turkish Coffee",S(55,75)],
+  ["إسبريسو","Espresso",S(70,90)],
+  ["ميكاتو","Macchiato",S(85,100)],
+  ["كاراميل ميكاتو","Caramel Macchiato",135],
+  ["قهوة فرنساوي","French Coffee",80],
+  ["كابتشينو","Cappuccino",M(110,120)],
+  ["لاتيه","Latte",M(100,110)],
+  ["فلات وايت","Flat White",120],
+  ["كورتادو","Cortado",110],
+  ["أمريكانو","Americano",M(100,110)],
+  ["كافيه أوليه","Café au Lait",120],
+  ["سبانيش لاتيه","Spanish Latte",135],
+  ["موكا","Mocha",135,"(دارك شوكليت - وايت شوكليت)","(Dark Chocolate - White Chocolate)"],
+  ["ماتشا","Matcha",110],
+  ["V60","V60 Coffee",125],
+  ["قهوة فلتر","Filter Coffee",110]
+ ]],
+ ["العصائر الفريش","Fresh Juices",[
+  ["مانجو","Mango",90],
+  ["كيوي","Kiwi",110],
+  ["جوافة","Guava",90],
+  ["فراولة","Strawberry",90],
+  ["بطيخ","Watermelon",100],
+  ["ليمون نعناع","Lemon Mint",90]
+ ]],
+ ["السموزي","Smoothies",[
+  ["مانجو","Mango",110],
+  ["فراولة","Strawberry",110],
+  ["باشون","Passion Fruit",110],
+  ["كيوي","Kiwi",110],
+  ["كريز","Cherry",110],
+  ["بطيخ","Watermelon",110],
+  ["خوخ","Peach",110],
+  ["بينا كولادا","Piña Colada",135,"(لبن جوز الهند - أناناس)","(Coconut Milk - Pineapple)"],
+  ["باشون خوخ","Passion Peach",135],
+  ["ميكس بيري","Mixed Berry",135],
+  ["مانجو باشون","Mango Passion",135],
+  ["مانجو كيوي","Mango Kiwi",135],
+  ["كريزي Obros","Crazy Obros",150]
+ ]],
+ ["القهوة المثلجة","Ice Coffee",[
   ["آيس لاتيه","Iced Latte",110],
-  ["آيس أمريكانو","Iced Americano",110],
-  ["آيس ماتشا","Iced Matcha",125],
-  ["عصائر","Fresh Juices",90],
-  ["موهيتو","Mojito",145],
-  ["موهيتو ريد بول","Red Bull Mojito",200],
-  ["سموزي","Smoothie",125],
-  ["V60","V60",125],
-  ["آيس تي","Ice Tea",80],
-  ["مشروبات غازية","Soft Drinks",75],
-  ["مياه فوارة","Sparkling Water",55],
-  ["مياه","Water",15]
+  ["آيس كابتشينو","Iced Cappuccino",140],
+  ["آيس كاراميل ميكاتو","Iced Caramel Macchiato",140],
+  ["آيس سبانيش لاتيه","Iced Spanish Latte",140],
+  ["آيس ماتشا","Iced Matcha",110],
+  ["موكا","Mocha",140,"(وايت شوكليت - دارك شوكليت)","(White Chocolate - Dark Chocolate)"],
+  ["فرابيه كلاسيك","Classic Frappe",125],
+  ["أوريو فرابيه","Oreo Frappe",135],
+  ["فرابيه كاراميل","Caramel Frappe",140],
+  ["فرابيه لوتس","Lotus Frappe",140],
+  ["موكا فرابيه","Mocha Frappe",140],
+  ["فرابيه بيستاشيو","Pistachio Frappe",140],
+  ["فرابتشينو كلاسيك","Classic Frappuccino",125],
+  ["V60","V60 Coffee",125]
  ]],
- ["كرواسون","Croissants",[
+ ["المشروبات الغازية","Soft Drinks",[
+  ["بيبسي","Pepsi",60],
+  ["بيبسي دايت","Pepsi Diet",60],
+  ["سفن أب","7UP",60],
+  ["سفن أب دايت","7UP Diet",60],
+  ["سفن موهيتو","7UP Mojito",60],
+  ["شويبس","Schweppes",60,"(رمان - أناناس - خوخ - ليمون نعناع)","(Pomegranate - Pineapple - Peach - Lemon Mint)"],
+  ["مياه","Water",15],
+  ["مياه فوارة","Sparkling Water",55]
+ ]],
+ ["الكرواسون","Croissant",[
   ["كرواسون سادة","Plain Croissant",70],
+  ["كرواسون تركي","Turkey Croissant",110],
   ["كرواسون تركي وشيدر","Turkey & Cheddar Croissant",130],
-  ["كرواسون بيستاشيو","Pistachio Croissant",110],
-  ["كرواسون نوتيلا","Nutella Croissant",110]
+  ["ميكس تشيز","Mixed Cheese Croissant",130],
+  ["كرواسون شوكولاتة","Chocolate Croissant",90],
+  ["كرواسون كاراميل","Caramel Croissant",90],
+  ["كرواسون لوتس","Lotus Croissant",100],
+  ["كرواسون بيستاشيو","Pistachio Croissant",100]
  ]],
- ["ساندوتشات","Sandwiches",[
-  ["ساندوتش تربل تشيز","Triple Cheese Sandwich",130],
-  ["ساندوتش تونة","Tuna Sandwich",155],
-  ["ساندوتش فراخ مدخنة","Smoked Chicken Sandwich",160],
-  ["ساندوتش سالمون","Salmon Sandwich",220],
-  ["بيكون تركي","Turkey Bacon",165]
+ ["الكوكيز","Cookies",[
+  ["كلاسيك","Classic",55],
+  ["كندر","Kinder",65],
+  ["لوتس","Lotus",65],
+  ["نوتيلا","Nutella",65],
+  ["ريد فيلفيت","Red Velvet",65],
+  ["قرفة","Cinnamon",65],
+  ["دارك شوكليت","Dark Chocolate",65]
  ]],
- ["الكيك والحلويات","Cakes & Desserts",[
-  ["كاروت كيك","Carrot Cake",95],
+ ["الكيك","Cakes",[
+  ["براونيز","Brownies",80],
   ["تشيز كيك","Cheesecake",90],
-  ["تشيز كيك فليڤور","Flavored Cheesecake",125],
+  ["تشيز كيك فلاڤور","Flavored Cheesecake",110],
   ["أوريو كيك","Oreo Cake",90],
-  ["هاني كيك","Honey Cake",90],
-  ["ريد ڤيلڤيت","Red Velvet Cake",90],
-  ["تيراميسو","Tiramisu",90],
-  ["شوكولاتة كيك","Chocolate Cake",90],
-  ["كوكيز","Cookies",65],
-  ["براونيز","Brownies",80]
+  ["فادج","Fudge Cake",90],
+  ["كاروت كيك","Carrot Cake",90],
+  ["كيك العسل","Honey Cake",90],
+  ["تيراميسو","Tiramisu",90]
  ]],
- ["إضافات","Extras",[
+ ["الساندوتشات","Sandwiches",[
+  ["بيكون تركي","Turkey Bacon",165],
+  ["جريلد حلومي","Grilled Halloumi",130],
+  ["فراخ مدخنة","Smoked Chicken",160],
+  ["فراخ حارة","Spicy Chicken",170],
+  ["فراخ تندوري","Tandoori Chicken",170],
+  ["بيكون تركي تورتيلا","Turkey Bacon Tortilla",170],
+  ["ميكس تشيز","Mixed Cheese",130],
+  ["تونة","Tuna",155],
+  ["سالمون","Salmon",220]
+ ]],
+ ["السلطات","Salads",[
+  ["سلطة سيزر","Caesar Salad",180],
+  ["باستا تونة","Tuna Pasta Salad",200],
+  ["سلطة فواكه","Fruit Salad",100]
+ ]],
+ ["الإضافات","Extras",[
   ["إسبريسو","Espresso",40],
   ["فليڤور","Flavors",35],
   ["ويب كريم","Whipped Cream",40],
   ["لبن لوز","Almond Milk",50],
-  ["لبن جوز هند","Coconut Milk",50]
+  ["لبن جوز الهند","Coconut Milk",50],
+  ["لبن شوفان","Oat Milk",50]
  ]]
 ];
 // =================================
@@ -121,23 +204,27 @@ const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.classN
 
 const sections = CATS.map(([ar, en, items], i) => {
   const s = el("section"); s.id = "cat" + i;
-  const h = el("h2", "", ar); h.appendChild(el("span", "", en)); s.appendChild(h);
-  items.forEach(([n, e, p]) => {
+  const h = el("h2", "", ar); h.appendChild(el("span", "", en.toUpperCase())); s.appendChild(h);
+  items.forEach(([n, e, p, na, ne]) => {
     const row = el("div", "item"), txt = el("div", "txt");
     txt.append(el("span", "name", n), el("span", "en", e));
+    if (na) txt.appendChild(el("span", "note", na));
+    if (ne) txt.appendChild(el("span", "note l", ne));
     const price = el("div", "price");
     if (Array.isArray(p)) {
-      p.forEach(([lbl, v]) => { const o = el("div", "opt"); o.append(el("em", "", lbl), el("span", "", v)); price.appendChild(o); });
+      p.forEach(([a, b, v]) => { const o = el("div", "opt"); o.append(el("em", "", a + " · " + b), el("span", "", v)); price.appendChild(o); });
     } else { price.append(el("span", "", p), el("small", "", CUR)); }
+    row.dataset.t = [n, e, na, ne].join(" ").toLowerCase();
     row.append(txt, price); s.appendChild(row);
   });
   menu.appendChild(s);
-  const b = el("button", "", ar); b.setAttribute("aria-pressed", i === 0);
+  const b = el("button", "", ar); b.appendChild(el("small", "", en)); b.setAttribute("aria-pressed", i === 0);
   b.onclick = () => s.scrollIntoView({ behavior: "smooth", block: "start" });
   tabs.appendChild(b);
   return s;
 });
 
+// تظليل القسم الحالي أثناء التمرير
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) {
     const i = sections.indexOf(e.target);
@@ -146,6 +233,18 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   }
 }), { rootMargin: "-20% 0px -70% 0px" });
 sections.forEach(s => io.observe(s));
+
+// البحث
+document.getElementById("q").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  let any = false;
+  sections.forEach((s, i) => {
+    let n = 0;
+    s.querySelectorAll(".item").forEach(r => { const m = !q || r.dataset.t.includes(q); r.hidden = !m; if (m) n++; });
+    s.hidden = n === 0; tabs.children[i].hidden = n === 0; if (n) any = true;
+  });
+  document.getElementById("none").style.display = any ? "none" : "block";
+});
 </script>
 </body>
 </html>
