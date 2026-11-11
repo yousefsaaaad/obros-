@@ -11,7 +11,6 @@
 <style>
 :root{
   --bg: #0d0d0d;
-  /* كاردات شفافة بستايل رايق عشان الغزالة تبان من وراها بوضوح */
   --card: rgba(15, 15, 15, 0.2);
   --ink: #e6e6e6;
   --mute: #a0a0a0;
@@ -32,7 +31,7 @@ body{
   overflow-x: hidden;
 }
 
-/* --- خلفية الغزالة المائية واضحة جداً وبارزة ورا الكاردات --- */
+/* --- خلفية الغزالة المائية واضحة وبارزة ورا الكاردات --- */
 body::before {
   content: "";
   position: fixed;
@@ -218,27 +217,6 @@ const CUR = "ج.م";
 const S = (a, b) => [["سنجل","Single",a],["دبل","Double",b]];
 const M = (a, b) => [["وسط","Medium",a],["كبير","Large",b]];
 const CATS = [
- ["العصائر الفريش","Fresh Juices",[
-  ["مانجو","Mango",90],
-  ["كيوي","Kiwi",110],
-  ["جوافة","Guava",90],
-  ["فراولة","Strawberry",90],
-  ["بطيخ","Watermelon",100],
-  ["ليمون نعناع","Lemon Mint",80]
- ]],
- ["المشروبات الساخنة","Hot Drinks",[
-  ["شاي","Tea",45,"(أحمر - أخضر)","(Black - Green)"],
-  ["شاي فواكه","Fruit Tea",60],
-  ["شاي بالحليب","Milk Tea",70],
-  ["أعشاب","Herbal Tea",50,"(نعناع - ينسون - قرفة - زنجبيل - ليمون - بقدونس - كركديه)","(Mint - Anise - Cinnamon - Ginger - Lemon - Parsley - Hibiscus)"],
-  ["كولد آند فلو","Cold & Flu",80,"(عصير برتقال - عسل أبيض - زنجبيل)","(Orange Juice - Honey - Ginger)"],
-  ["أبل سايدر","Apple Cider",100,"(أعواد قرفة - قرنفل - عصير تفاح)","(Cinnamon Sticks - Cloves - Apple Juice)"],
-  ["هوت شوكليت","Hot Chocolate",120],
-  ["هوت أوريو","Hot Oreo",110],
-  ["هوت لوتس","Hot Lotus",110],
-  ["هوت بندق","Hot Hazelnut",110],
-  ["سحلب","Sahlab",120]
- ]],
  ["القهوة الساخنة","Hot Coffee",[
   ["قهوة تركي","Turkish Coffee",S(55,75)],
   ["إسبريسو","Espresso",S(70,90)],
@@ -257,19 +235,34 @@ const CATS = [
   ["V60","V60 Coffee",125],
   ["قهوة فلتر","Filter Coffee",110]
  ]],
- ["السموزي","Smoothies",[
-  ["مانجو","Mango",110],
-  ["فراولة","Strawberry",110],
-  ["باشون","Passion Fruit",110],
-  ["كيوي","Kiwi",110],
-  ["كريز","Cherry",110],
-  ["بطيخ","Watermelon",110],
-  ["خوخ","Peach",110],
-  ["بينا كولادا","Piña Colada",135,"(لبن جوز الهند - أناناس)","(Coconut Milk - Pineapple)"],
-  ["باشون خوخ","Passion Peach",135],
-  ["ميكس بيري","Mixed Berry",135],
-  ["مانجو باشون","Mango Passion",135],
-  ["مانجو كيوي","Mango Kiwi",135]
+ ["المشروبات الساخنة","Hot Drinks",[
+  ["شاي","Tea",45,"(أحمر - أخضر)","(Black - Green)"],
+  ["شاي فواكه","Fruit Tea",60],
+  ["شاي بالحليب","Milk Tea",70],
+  ["أعشاب","Herbal Tea",50,"(نعناع - ينسون - قرفة - زنجبيل - ليمون - بقدونس - كركديه)","(Mint - Anise - Cinnamon - Ginger - Lemon - Parsley - Hibiscus)"],
+  ["كولد آند فلو","Cold & Flu",80,"(عصير برتقال - عسل أبيض - زنجبيل)","(Orange Juice - Honey - Ginger)"],
+  ["أبل سايدر","Apple Cider",100,"(أعواد قرفة - قرنفل - عصير تفاح)","(Cinnamon Sticks - Cloves - Apple Juice)"],
+  ["هوت شوكليت","Hot Chocolate",120],
+  ["هوت أوريو","Hot Oreo",110],
+  ["هوت لوتس","Hot Lotus",110],
+  ["هوت بندق","Hot Hazelnut",110],
+  ["سحلب","Sahlab",120]
+ ]],
+ ["القهوة المثلجة","Ice Coffee",[
+  ["آيس لاتيه","Iced Latte",110],
+  ["آيس كابتشينو","Iced Cappuccino",140],
+  ["آيس كاراميل ميكاتو","Iced Caramel Macchiato",140],
+  ["آيس سبانيش لاتيه","Iced Spanish Latte",140],
+  ["آيس ماتشا","Iced Matcha",110],
+  ["موكا","Mocha",140,"(وايت شوكليت - دارك شوكليت)","(White Chocolate - Dark Chocolate)"],
+  ["فرابيه كلاسيك","Classic Frappe",125],
+  ["أوريو فرابيه","Oreo Frappe",135],
+  ["فرابيه كاراميل","Caramel Frappe",140],
+  ["فرابيه لوتس","Lotus Frappe",140],
+  ["موكا فرابيه","Mocha Frappe",140],
+  ["فرابيه بيستاشيو","Pistachio Frappe",140],
+  ["فرابتشينو كلاسيك","Classic Frappuccino",125],
+  ["V60","V60 Coffee",125]
  ]],
  ["موهيتو أوبرس","O'Bros Mojitos",[
   ["موهيتو كلاسيك","Classic Mojito",100,"سكر بني / شرائح ليمون / نعناع / صودا","Brown Sugar / Lemon Slices / Mint / Soda"],
@@ -294,21 +287,27 @@ const CATS = [
   ["بلو هاواي","Blue Hawaii",145,"سيرب بلو كوراسون / سيرب جوز الهند / عصير أناناس / عصير برتقال","Blue Curaçao Syrup / Coconut Syrup / Pineapple Juice / Orange Juice"],
   ["جامايكا","Jamaica",145,"جرينادين رمان / عصير برتقال / عصير ليمون / عصير أناناس / شرائح ليمون / نعناع","Pomegranate Grenadine / Orange Juice / Lemon Juice / Pineapple Juice / Lemon Slices / Mint"]
  ]],
- ["القهوة المثلجة","Ice Coffee",[
-  ["آيس لاتيه","Iced Latte",110],
-  ["آيس كابتشينو","Iced Cappuccino",140],
-  ["آيس كاراميل ميكاتو","Iced Caramel Macchiato",140],
-  ["آيس سبانيش لاتيه","Iced Spanish Latte",140],
-  ["آيس ماتشا","Iced Matcha",110],
-  ["موكا","Mocha",140,"(وايت شوكليت - دارك شوكليت)","(White Chocolate - Dark Chocolate)"],
-  ["فرابيه كلاسيك","Classic Frappe",125],
-  ["أوريو فرابيه","Oreo Frappe",135],
-  ["فرابيه كاراميل","Caramel Frappe",140],
-  ["فرابيه لوتس","Lotus Frappe",140],
-  ["موكا فرابيه","Mocha Frappe",140],
-  ["فرابيه بيستاشيو","Pistachio Frappe",140],
-  ["فرابتشينو كلاسيك","Classic Frappuccino",125],
-  ["V60","V60 Coffee",125]
+ ["السموزي","Smoothies",[
+  ["مانجو","Mango",110],
+  ["فراولة","Strawberry",110],
+  ["باشون","Passion Fruit",110],
+  ["كيوي","Kiwi",110],
+  ["كريز","Cherry",110],
+  ["بطيخ","Watermelon",110],
+  ["خوخ","Peach",110],
+  ["بينا كولادا","Piña Colada",135,"(لبن جوز الهند - أناناس)","(Coconut Milk - Pineapple)"],
+  ["باشون خوخ","Passion Peach",135],
+  ["ميكس بيري","Mixed Berry",135],
+  ["مانجو باشون","Mango Passion",135],
+  ["مانجو كيوي","Mango Kiwi",135]
+ ]],
+ ["العصائر الفريش","Fresh Juices",[
+  ["مانجو","Mango",90],
+  ["كيوي","Kiwi",110],
+  ["جوافة","Guava",90],
+  ["فراولة","Strawberry",90],
+  ["بطيخ","Watermelon",100],
+  ["ليمون نعناع","Lemon Mint",80]
  ]],
  ["المشروبات الغازية","Soft Drinks",[
   ["بيبسي","Pepsi",60],
@@ -357,6 +356,11 @@ const CATS = [
   ["ميكس تشيز","Mixed Cheese",130],
   ["تونة","Tuna",155],
   ["سالمون","Salmon",220]
+ ]],
+ ["السلطات","Salads",[
+  ["سلطة سيزر","Caesar Salad",180],
+  ["باستا تونة","Tuna Pasta Salad",200],
+  ["سلطة فواكه","Fruit Salad",100]
  ]]
 ];
 
