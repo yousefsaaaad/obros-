@@ -11,7 +11,26 @@
 @media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--card:#141414;--ink:#e6e6e6;--mute:#8c8c8c;--line:#222222;--head:#111111;--accent:#e6e6e6;--accent-ink:#0d0d0d}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5;position:relative}
+
+/* --- إضافة خلفية YETUK المائية هنا --- */
+body::before {
+  content: "YETUK";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  font-size: 14vw;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.025);
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: 10px;
+}
+
+header, nav, main, footer { position: relative; z-index: 1; }
+
 header{background:var(--head);padding:28px 20px 20px;text-align:center;border-bottom:1px solid var(--line)}
 .brand-title{font-family:"Cairo",Tahoma,sans-serif;font-weight:800;font-size:2.4rem;margin:0;color:var(--ink);letter-spacing:1px;line-height:1.2}
 header p{margin:6px 0 14px;color:var(--mute);font-size:.95rem}
