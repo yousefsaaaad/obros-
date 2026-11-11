@@ -7,12 +7,12 @@
 <title>منيو O’Bros</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d0d0d;--card:rgba(20, 20, 20, 0.92);--ink:#e6e6e6;--mute:#8c8c8c;--line:#222222;--head:rgba(17, 17, 17, 0.95);--accent:#e6e6e6;--accent-ink:#0d0d0d}
+:root{--bg:#0d0d0d;--card:rgba(18, 18, 18, 0.75);--ink:#e6e6e6;--mute:#8c8c8c;--line:rgba(255, 255, 255, 0.08);--head:rgba(13, 13, 13, 0.8);--accent:#e6e6e6;--accent-ink:#0d0d0d}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5;position:relative}
 
-/* --- خلفية الصورة المائية (Watermark) --- */
+/* --- الخلفية المائية للغزالة (تأكد من رفع الصورة باسم logo-bg.png) --- */
 body::before {
   content: "";
   position: fixed;
@@ -24,27 +24,27 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: min(85vw, 450px);
-  opacity: 0.07; /* شفافة وخفيفة في الخلفية */
+  opacity: 0.12;
   z-index: 0;
   pointer-events: none;
 }
 
 header, nav, main, footer { position: relative; z-index: 1; }
 
-header{background:var(--head);padding:28px 20px 20px;text-align:center;border-bottom:1px solid var(--line);backdrop-filter: blur(5px)}
+header{background:var(--head);padding:28px 20px 20px;text-align:center;border-bottom:1px solid var(--line);backdrop-filter: blur(8px)}
 .brand-title{font-family:"Cairo",Tahoma,sans-serif;font-weight:800;font-size:2.4rem;margin:0;color:var(--ink);letter-spacing:1px;line-height:1.2}
 header p{margin:6px 0 14px;color:var(--mute);font-size:.95rem}
-#q{width:min(420px,100%);border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:9px 16px;border-radius:99px;outline:none;text-align:center}
+#q{width:min(420px,100%);border:1px solid var(--line);background:rgba(25, 25, 25, 0.6);color:var(--ink);font:inherit;padding:9px 16px;border-radius:99px;outline:none;text-align:center;backdrop-filter: blur(4px)}
 #q:focus{border-color:var(--accent)}
-nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+nav{position:sticky;top:0;z-index:5;background:rgba(13, 13, 13, 0.85);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;backdrop-filter: blur(8px)}
 nav::-webkit-scrollbar{display:none}
-nav button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.9rem;padding:4px 15px;border-radius:99px;cursor:pointer;line-height:1.35;text-align:center}
+nav button{flex:none;border:1px solid var(--line);background:rgba(25, 25, 25, 0.4);color:var(--ink);font:inherit;font-size:.9rem;padding:4px 15px;border-radius:99px;cursor:pointer;line-height:1.35;text-align:center;backdrop-filter: blur(4px)}
 nav button small{display:block;font-size:.68rem;color:var(--mute);direction:ltr}
 nav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
 nav button[aria-pressed="true"] small{color:inherit;opacity:.75}
 nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 main{max-width:680px;margin:0 auto;padding:6px 14px 40px}
-section{scroll-margin-top:68px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px 8px;margin-top:16px;backdrop-filter: blur(5px)}
+section{scroll-margin-top:68px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px 8px;margin-top:16px;backdrop-filter: blur(8px);box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37)}
 h2{font-size:1.2rem;margin:12px 0 4px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-bottom:8px;border-bottom:2px solid var(--accent)}
 h2 span{font-size:.8rem;color:var(--mute);font-weight:600;letter-spacing:.08em;direction:ltr}
 .item{display:flex;align-items:flex-start;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line)}
