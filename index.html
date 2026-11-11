@@ -7,10 +7,29 @@
 <title>منيو O’Bros</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d0d0d;--card:rgba(15, 15, 15, 0.85);--ink:#e6e6e6;--mute:#8c8c8c;--line:rgba(255, 255, 255, 0.1);--head:rgba(10, 10, 10, 0.9);--accent:#e6e6e6;--accent-ink:#0d0d0d}
+:root{--bg:#0d0d0d;--card:rgba(15, 15, 15, 0.82);--ink:#e6e6e6;--mute:#8c8c8c;--line:rgba(255, 255, 255, 0.1);--head:rgba(10, 10, 10, 0.88);--accent:#e6e6e6;--accent-ink:#0d0d0d}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,sans-serif;line-height:1.5;position:relative}
+
+/* --- خلفية الغزالة المائية --- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('logo-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(85vw, 450px);
+  opacity: 0.18; /* واضحة وجميلة في الخلفية */
+  z-index: 0;
+  pointer-events: none;
+}
+
+header, nav, main, footer { position: relative; z-index: 1; }
 
 header{background:var(--head);padding:22px 20px 18px;text-align:center;border-bottom:1px solid var(--line);backdrop-filter: blur(10px)}
 .brand-logo{max-height:55px;width:auto;display:inline-block;filter: invert(1) brightness(1.2);margin-bottom:2px;}
@@ -47,7 +66,6 @@ footer{text-align:center;color:var(--mute);font-size:.8rem;padding:10px 20px 30p
 </head>
 <body>
 <header>
-  <!-- هنا تم وضع صورة اللوجو فوق خالص -->
   <img src="logo-top.png" alt="O'Bros" class="brand-logo">
   <p>Menu | المنيو</p>
   <input id="q" type="search" placeholder="ابحث في المنيو · Search" aria-label="بحث">
